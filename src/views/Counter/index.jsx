@@ -2,17 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { increment } from '$redux/actions'
-
-import './Counter.css'
-
-const mapStateToProps = state => ({
-  count: state.counter.count
-})
-
-const mapDispatchToProps = dispatch => ({
-  increment: bindActionCreators(increment, dispatch)
-})
+import { increment } from './actions'
+import './style.less'
 
 const Counter = ({ count, increment }) => (
   <a className='counter'
@@ -27,7 +18,13 @@ Counter.prototype.propTypes = {
   increment: PropTypes.func
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Counter)
+// --------------------------redux-----------------------
+const mapStateToProps = state => ({
+  count: state.counter.count
+})
+
+const mapDispatchToProps = dispatch => ({
+  increment: bindActionCreators(increment, dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)

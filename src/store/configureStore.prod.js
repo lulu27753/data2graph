@@ -1,5 +1,5 @@
 import { createStore } from 'redux'
-import rootReducer from '../reducers'
+import rootReducer from '../views/reducers'
 import middlewares from './middlewares'
 
 export default function configureStore (initialState) {

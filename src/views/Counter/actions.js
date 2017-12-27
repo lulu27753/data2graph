@@ -1,3 +1,3 @@
-import * as types from '../constants/ActionTypes'
+import * as types from './constant'
 
 export const increment = () => ({ type: types.INCREMENT })
